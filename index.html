@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0809">
+    <title>آخر رسالة | CASE 001</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <button class="brand" id="brandHome" type="button">
+        <span class="brand-icon">آ</span>
+        <span>
+            <strong>آخر رسالة</strong>
+            <small>CASE FILE 001</small>
+        </span>
+    </button>
+    <span class="status"><i></i> ملف القضية مفتوح</span>
+</header>
+
+<main class="app">
+
+    <!-- الصفحة الرئيسية -->
+    <section id="homeScreen" class="screen active">
+        <div class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">قضية رقم 001 · ملف سري</p>
+                <h1>آخر <span>رسالة</span></h1>
+
+                <p class="hero-text">
+                    رسالة وصلت في منتصف الليل.
+                    شخص اختفى دون أثر.
+                    وأربعة أشخاص يعرفون أكثر مما يقولون.
+                </p>
+
+                <div class="tags">
+                    <span>تحقيق وغموض</span>
+                    <span>قصة تفاعلية</span>
+                    <span>قراراتك تصنع التحقيق</span>
+                </div>
+
+                <button class="primary-btn" id="startButton" type="button">
+                    فتح ملف القضية ←
+                </button>
+
+                <button class="text-btn" id="continueButton" type="button" hidden>
+                    متابعة التحقيق السابق
+                </button>
+            </div>
+
+            <div class="hero-image image-frame">
+                <img src="images/case-scene.jpg.png"
+                     alt="مشهد القضية الأولى"
+                     onerror="this.parentElement.classList.add('image-missing')">
+
+                <div class="image-caption">
+                    <small>LAST KNOWN MESSAGE</small>
+                    <strong>02:17 AM</strong>
+                </div>
+            </div>
+        </div>
+
+        <p class="home-note">كل دليل قد يغيّر ما تعرفه عن الحقيقة.</p>
+    </section>
+
+    <!-- قصة آدم -->
+    <section id="storyScreen" class="screen">
+        <div class="section-heading">
+            <p class="eyebrow">CASE FILE 001</p>
+            <h2>اختفاء <span>آدم</span></h2>
+            <p>آخر الساعات قبل اختفائه.</p>
+        </div>
+
+        <div class="story-layout">
+            <div class="story-image image-frame">
+                <img src="images/case-scene.jpg.png"
+                     alt="صورة من ملف قضية آدم"
+                     onerror="this.parentElement.classList.add('image-missing')">
+
+                <span class="image-caption">EVIDENCE PHOTO 01</span>
+            </div>
+
+            <article class="panel story-card">
+                <span class="file-label">ملخص القضية</span>
+
+                <p>
+                    في الساعة <strong>02:17 بعد منتصف الليل</strong>،
+                    وصلت رسالة مجهولة قبل اختفاء آدم.
+                </p>
+
+                <blockquote>
+                    «إذا وصلت لك هذه الرسالة... لا تثق بالشخص الذي يقول إنه يعرفني.»
+                </blockquote>
+
+                <p>
+                    كان آدم يحاول كشف سر قديم يرتبط بمبنى مهجور.
+                    وبعد اختفائه، ظهرت أدلة لا تبدو مترابطة للوهلة الأولى.
+                </p>
+
+                <div class="warning">
+                    <span>!</span>
+                    لا توجد معلومات كافية لتحديد المسؤول عن الاختفاء.
+                </div>
+
+                <button class="primary-btn full" id="toInvestigation" type="button">
+                    دخول غرفة التحقيق ←
+                </button>
+            </article>
+        </div>
+    </section>
+
+    <!-- غرفة الأدلة -->
+    <section id="roomScreen" class="screen">
+        <div class="section-heading">
+            <p class="eyebrow">LOCATION 01 · EVIDENCE ROOM</p>
+            <h2>غرفة <span>التحقيق</span></h2>
+            <p>اختاري أي دليل تحت الصورة لعرض تفاصيله وفحصه.</p>
+        </div>
+
+        <div class="room-scene image-frame">
+            <img src="images/investigation-room.jpg.png"
+                 alt="غرفة التحقيق"
+                 class="room-background"
+                 onerror="this.parentElement.classList.add('image-missing')">
+
+            <div class="room-shade"></div>
+
+            <div class="image-caption">
+                <small>CASE 001</small>
+                <strong>مسرح التحقيق</strong>
+            </div>
+        </div>
+
+        <div class="panel evidence-panel">
+            <div class="evidence-heading">
+                <div>
+                    <p class="eyebrow">COLLECTED CLUES</p>
+                    <h3>الأدلة المتاحة</h3>
+                </div>
+
+                <span id="evidenceProgress">0 / 3 أدلة أساسية</span>
+            </div>
+
+            <div class="evidence-options">
+                <button class="evidence-option" data-evidence="phone" type="button">
+                    <span class="evidence-number">01</span>
+                    <span class="evidence-icon">▯</span>
+                    <span class="evidence-info">
+                        <strong>الجوال</strong>
+                        <small>آخر رسالة من آدم</small>
+                    </span>
+                    <span class="evidence-status" data-status="phone">فحص الدليل ←</span>
+                </button>
+
+                <button class="evidence-option" data-evidence="photo" type="button">
+                    <span class="evidence-number">02</span>
+                    <span class="evidence-icon">▧</span>
+                    <span class="evidence-info">
+                        <strong>الصورة القديمة</strong>
+                        <small>شخصان أمام مبنى مهجور</small>
+                    </span>
+                    <span class="evidence-status" data-status="photo">فحص الدليل ←</span>
+                </button>
+
+                <button class="evidence-option" data-evidence="paper" type="button">
+                    <span class="evidence-number">03</span>
+                    <span class="evidence-icon">▤</span>
+                    <span class="evidence-info">
+                        <strong>الورقة الغامضة</strong>
+                        <small>رسالة تركها آدم</small>
+                    </span>
+                    <span class="evidence-status" data-status="paper">فحص الدليل ←</span>
+                </button>
+
+                <button class="evidence-option extra-evidence" data-evidence="clock" type="button">
+                    <span class="evidence-number">04</span>
+                    <span class="evidence-icon">◷</span>
+                    <span class="evidence-info">
+                        <strong>الساعة</strong>
+                        <small>متوقفة عند 02:17</small>
+                    </span>
+                    <span class="evidence-status" data-status="clock">فحص إضافي ←</span>
+                </button>
+
+                <button class="evidence-option extra-evidence" data-evidence="key" type="button">
+                    <span class="evidence-number">05</span>
+                    <span class="evidence-icon">⚿</span>
+                    <span class="evidence-info">
+                        <strong>المفتاح القديم</strong>
+                        <small>لم تُعرف وظيفته بعد</small>
+                    </span>
+                    <span class="evidence-status" data-status="key">فحص إضافي ←</span>
+                </button>
+            </div>
+
+            <div class="progress-track">
+                <div id="evidenceProgressBar" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="room-bottom">
+            <p class="muted-note">
+                افحصي الأدلة الأساسية الثلاثة، ثم انتقلي إلى الاستجواب.
+            </p>
+
+            <button class="secondary-btn" id="toSuspectsFromRoom" type="button">
+                المشتبه بهم ←
+            </button>
+        </div>
+    </section>
+
+    <!-- المشتبه بهم -->
+    <section id="suspectsScreen" class="screen">
+        <div class="section-heading">
+            <p class="eyebrow">PERSONS OF INTEREST</p>
+            <h2>المشتبه <span>بهم</span></h2>
+            <p>استمعي إلى أقوالهم، ولا تعتبري أي رواية حقيقة مؤكدة.</p>
+        </div>
+
+        <div id="suspectsGrid" class="suspects-grid"></div>
+
+        <div class="stage-footer">
+            <div>
+                <strong id="interviewProgress">0 / 4 مقابلات</strong>
+                <p class="muted-note">سجّلي المقابلات لفتح لوحة الربط.</p>
+            </div>
+
+            <button class="primary-btn" id="toBoardButton" type="button">
+                لوحة ربط الأدلة ←
+            </button>
+        </div>
+    </section>
+
+    <!-- لوحة ربط الأدلة -->
+    <section id="boardScreen" class="screen">
+        <div class="section-heading">
+            <p class="eyebrow">CASE ANALYSIS · 001</p>
+            <h2>لوحة ربط <span>الأدلة</span></h2>
+            <p>اربطي الأدلة بالمشتبه بهم، واكتبي سبب كل فرضية.</p>
+        </div>
+
+        <div class="board-layout">
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="number-box">01</span>
+                    <div>
+                        <h3>اختاري الدليل</h3>
+                        <p>أي عنصر تريدين تحليله؟</p>
+                    </div>
+                </div>
+
+                <div id="boardEvidenceList" class="choice-list"></div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="number-box">02</span>
+                    <div>
+                        <h3>اختاري المشتبه به</h3>
+                        <p>من تريدين اختبار فرضيتك عنه؟</p>
+                    </div>
+                </div>
+
+                <div id="boardSuspectList" class="choice-list"></div>
+            </div>
+        </div>
+
+        <div class="panel connection-panel">
+            <span class="file-label">تسجيل فرضية جديدة</span>
+            <p id="connectionSummary">اختاري دليلًا ومشتبهًا به أولًا.</p>
+
+            <label for="connectionReason">سبب الربط (اختياري)</label>
+
+            <textarea id="connectionReason" rows="3" maxlength="240"
+                placeholder="ما الذي جعلك تربطين هذا الدليل بهذا الشخص؟"></textarea>
+
+            <button class="primary-btn full" id="saveConnectionButton" type="button">
+                تسجيل الربط
+            </button>
+
+            <p id="boardFeedback" class="feedback" aria-live="polite"></p>
+        </div>
+
+        <div class="panel">
+            <div class="panel-heading">
+                <span class="number-box">03</span>
+                <div>
+                    <h3>الروابط المسجلة</h3>
+                    <p>راجعي الفرضيات التي سجلتيها.</p>
+                </div>
+            </div>
+
+            <div id="connectionsList" class="connections-list"></div>
+        </div>
+
+        <div class="stage-footer">
+            <button class="secondary-btn" id="backToSuspects" type="button">
+                ← المشتبه بهم
+            </button>
+
+            <button class="primary-btn" id="finishAnalysisButton" type="button">
+                مراجعة التحقيق
+            </button>
+        </div>
+    </section>
+
+    <!-- ملخص التحقيق -->
+    <section id="reviewScreen" class="screen">
+        <div class="section-heading">
+            <p class="eyebrow">INVESTIGATION LOG</p>
+            <h2>مراجعة <span>التحقيق</span></h2>
+            <p>راجعي ما جمعتِه قبل اتخاذ أي قرار.</p>
+        </div>
+
+        <div class="panel review-summary" id="reviewSummary"></div>
+
+        <div class="review-actions">
+            <button class="secondary-btn" id="reviewBoardButton" type="button">
+                العودة إلى لوحة الأدلة
+            </button>
+
+            <button class="primary-btn" id="reviewRoomButton" type="button">
+                العودة إلى غرفة التحقيق
+            </button>
+        </div>
+
+        <button class="text-btn reset-button" id="resetGameButton" type="button">
+            بدء قضية جديدة ومسح التقدم
+        </button>
+    </section>
+
+    <!-- المواجهة الأخيرة -->
+    <section id="finalConfrontation" class="screen">
+        <div class="final-case">
+            <p class="case-label">CASE 001 — FINAL CONFRONTATION</p>
+
+            <h2>المواجهة الأخيرة</h2>
+
+            <p class="final-intro">
+                جمعت الأدلة وسمعت أقوال الجميع.
+                حان الوقت لتقرر من تخفي أقواله الحقيقة.
+            </p>
+
+            <div class="final-warning">
+                ⚠️ اتهامك الأخير سيحدد نهاية القضية.
+            </div>
+
+            <h3>من تتهم؟</h3>
+
+            <div class="final-suspects">
+                <label>
+                    <input type="radio" name="finalSuspect" value="layla">
+                    ليلى منصور
+                </label>
+
+                <label>
+                    <input type="radio" name="finalSuspect" value="fahad">
+                    فهد السالم
+                </label>
+
+                <label>
+                    <input type="radio" name="finalSuspect" value="noura">
+                    نورة الحربي
+                </label>
+
+                <label>
+                    <input type="radio" name="finalSuspect" value="majed">
+                    ماجد الراشد
+                </label>
+            </div>
+
+            <h3>وش الدليل الأقوى ضدّه؟</h3>
+
+            <div class="final-evidence">
+                <label>
+                    <input type="checkbox" name="finalEvidence" value="phone">
+                    رسالة آدم الأخيرة
+                </label>
+
+                <label>
+                    <input type="checkbox" name="finalEvidence" value="photo">
+                    الصورة القديمة
+                </label>
+
+                <label>
+                    <input type="checkbox" name="finalEvidence" value="paper">
+                    الورقة الغامضة
+                </label>
+
+                <label>
+                    <input type="checkbox" name="finalEvidence" value="clock">
+                    الساعة المتوقفة
+                </label>
+
+                <label>
+                    <input type="checkbox" name="finalEvidence" value="key">
+                    المفتاح القديم
+                </label>
+            </div>
+
+            <button id="revealTruthBtn" class="final-button" type="button">
+                كشف الحقيقة
+            </button>
+
+            <p id="finalError" class="final-error" hidden>
+                اختر مشتبهًا به ودليلًا واحدًا على الأقل.
+            </p>
+
+            <div id="truthEnding" hidden aria-live="polite">
+                <h3 id="endingTitle"></h3>
+                <p id="endingText"></p>
+                <p id="nextCaseMessage"></p>
+
+                <button id="restartFinalBtn" class="final-button" type="button">
+                    إعادة المواجهة
+                </button>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- نافذة فحص الأدلة -->
+<div class="modal-backdrop" id="evidenceModal" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true"
+        aria-labelledby="evidenceModalTitle">
+
+        <button class="modal-close" data-close-modal type="button"
+            aria-label="إغلاق">×</button>
+
+        <p class="eyebrow">EVIDENCE RECORD</p>
+        <h2 id="evidenceModalTitle">تفاصيل الدليل</h2>
+
+        <div id="evidenceModalContent"></div>
+
+        <button class="primary-btn full" id="markEvidenceButton" type="button">
+            تسجيل فحص الدليل
+        </button>
+    </section>
+</div>
+
+<!-- نافذة استجواب المشتبه بهم -->
+<div class="modal-backdrop" id="suspectModal" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true"
+        aria-labelledby="suspectModalTitle">
+
+        <button class="modal-close" data-close-modal type="button"
+            aria-label="إغلاق">×</button>
+
+        <p class="eyebrow">INTERROGATION RECORD</p>
+        <h2 id="suspectModalTitle">المقابلة</h2>
+
+        <div id="suspectModalContent"></div>
+
+        <div class="question-options" id="questionOptions">
+            <p class="file-label">اختاري سؤالًا للمتابعة</p>
+
+            <button class="question-btn" data-question="time" type="button">
+                متى كانت آخر مرة رأيت فيها آدم؟
+            </button>
+
+            <button class="question-btn" data-question="photo" type="button">
+                هل تعرف الشخص الموجود في الصورة؟
+            </button>
+
+            <button class="question-btn" data-question="secret" type="button">
+                ماذا تعرف عن السر القديم؟
+            </button>
+        </div>
+
+        <div id="followupAnswer" class="followup-answer" hidden></div>
+
+        <button class="primary-btn full" id="recordInterviewButton" type="button">
+            تسجيل المقابلة
+        </button>
+    </section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<footer class="site-footer">
+    RAGHAD © 2026 — LAST MESSAGE
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
